@@ -34,7 +34,7 @@ To use the framework you will need an API Key. To request it, just send an email
 ******************
     API
 ******************
-[api.aumentia.com](http://api.aumentia.com)
+[api.aumentia.com](http://api.aumentia.com/visualsearch/)
 
 <br>
 ******************
