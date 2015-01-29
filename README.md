@@ -14,6 +14,7 @@ Visual Search Framework
 * Scan up to 4 QR / bar codes at a time.
 * Define you matching areas: Regions of Interest.
 * Match images and QR codes simultaneously
+* **arm64 support**
 
 <br>
 **********************
