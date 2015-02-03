@@ -386,11 +386,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
 				COMPRESS_PNG_FILES = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"HelloVisualSearch/SDK/**",
-					"$(PROJECT_DIR)/HelloVisualSearch/SDK",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/ARBrowser3D_sample_1-cufgzowqrcoijaesgmdzeqebzgas/Build/Products/Debug-iphoneos",
-				);
+				FRAMEWORK_SEARCH_PATHS = "HelloVisualSearch/SDK/**";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HelloVisualSearch/HelloVisualSearch-Prefix.pch";
@@ -416,11 +412,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
 				COMPRESS_PNG_FILES = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"HelloVisualSearch/SDK/**",
-					"$(PROJECT_DIR)/HelloVisualSearch/SDK",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/ARBrowser3D_sample_1-cufgzowqrcoijaesgmdzeqebzgas/Build/Products/Debug-iphoneos",
-				);
+				FRAMEWORK_SEARCH_PATHS = "HelloVisualSearch/SDK/**";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HelloVisualSearch/HelloVisualSearch-Prefix.pch";
