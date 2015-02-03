@@ -31,9 +31,9 @@
 		5D2A69CA17062F37006F4AD9 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D2A69C917062F37006F4AD9 /* Accelerate.framework */; };
 		5D2A69CC17062F3F006F4AD9 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D2A69CB17062F3F006F4AD9 /* libiconv.dylib */; };
 		5D2A69CF17063CA0006F4AD9 /* CaptureSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2A69CE17063CA0006F4AD9 /* CaptureSessionManager.m */; };
+		6136CE271A80261A0001A89A /* VS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6136CE261A80261A0001A89A /* VS.framework */; };
 		61436B111A762873000C00E4 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61436B101A762873000C00E4 /* Launch Screen.xib */; };
 		61436B131A76297D000C00E4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61436B121A76297D000C00E4 /* Images.xcassets */; };
-		616032041A74364E00ACF47C /* VS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 616032031A74364E00ACF47C /* VS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,9 +67,9 @@
 		5D2A69CB17062F3F006F4AD9 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 		5D2A69CD17063CA0006F4AD9 /* CaptureSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptureSessionManager.h; sourceTree = "<group>"; };
 		5D2A69CE17063CA0006F4AD9 /* CaptureSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaptureSessionManager.m; sourceTree = "<group>"; };
+		6136CE261A80261A0001A89A /* VS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VS.framework; path = HelloVisualSearch/SDK/VS.framework; sourceTree = "<group>"; };
 		61436B101A762873000C00E4 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		61436B121A76297D000C00E4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		616032031A74364E00ACF47C /* VS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VS.framework; path = HelloVisualSearch/SDK/VS.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +83,7 @@
 				5D2A69C617062F27006F4AD9 /* QuartzCore.framework in Frameworks */,
 				5D2A69C417062F23006F4AD9 /* CoreMedia.framework in Frameworks */,
 				5D2A69C217062F1B006F4AD9 /* CoreVideo.framework in Frameworks */,
-				616032041A74364E00ACF47C /* VS.framework in Frameworks */,
+				6136CE271A80261A0001A89A /* VS.framework in Frameworks */,
 				5D2A69C017062F14006F4AD9 /* AVFoundation.framework in Frameworks */,
 				5D2A696C17062C1A006F4AD9 /* UIKit.framework in Frameworks */,
 				5D2A696E17062C1A006F4AD9 /* Foundation.framework in Frameworks */,
@@ -114,8 +114,8 @@
 		5D2A696A17062C1A006F4AD9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				616032031A74364E00ACF47C /* VS.framework */,
 				5D2A69CB17062F3F006F4AD9 /* libiconv.dylib */,
+				6136CE261A80261A0001A89A /* VS.framework */,
 				5D2A69C917062F37006F4AD9 /* Accelerate.framework */,
 				5D2A69C717062F31006F4AD9 /* CoreMotion.framework */,
 				5D2A69C517062F27006F4AD9 /* QuartzCore.framework */,
@@ -389,6 +389,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"HelloVisualSearch/SDK/**",
 					"$(PROJECT_DIR)/HelloVisualSearch/SDK",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/ARBrowser3D_sample_1-cufgzowqrcoijaesgmdzeqebzgas/Build/Products/Debug-iphoneos",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -418,6 +419,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"HelloVisualSearch/SDK/**",
 					"$(PROJECT_DIR)/HelloVisualSearch/SDK",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/ARBrowser3D_sample_1-cufgzowqrcoijaesgmdzeqebzgas/Build/Products/Debug-iphoneos",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

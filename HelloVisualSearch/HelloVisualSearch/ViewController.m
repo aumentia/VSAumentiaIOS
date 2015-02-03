@@ -141,10 +141,10 @@
         [_myVs setQrDelegate:self];
         
         // Set detection threshold
-        [_myVs setMatchingThreshold:5];
+        [_myVs setMatchingThreshold:8];
         
-        // Set mode: search for QR / bar codes and images
-        [_myVs setSearchMode:search_all];
+        // Set mode: search for QR and / or bar codes and images
+        [_myVs setSearchMode:search_image];
         
         // Add motion filter
         [_myVs initMotionDetectionWithThreshold:3 enableDebugLog:NO];
@@ -312,9 +312,9 @@
     _captureManager.delegate = self;
     
     // set video streaming quality
-    _captureManager.captureSession.sessionPreset = AVCaptureSessionPresetMedium;   //480x360
+    _captureManager.captureSession.sessionPreset = AVCaptureSessionPresetHigh;
     
-    [_captureManager setOutPutSetting:[NSNumber numberWithInt:kCVPixelFormatType_32BGRA]]; //kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange
+    [_captureManager setOutPutSetting:[NSNumber numberWithInt:kCVPixelFormatType_32BGRA]]; //kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange, kCVPixelFormatType_420YpCbCr8BiPlanarFullRange or kCVPixelFormatType_32BGRA
     
     [_captureManager addVideoInput:AVCaptureDevicePositionBack]; //AVCaptureDevicePositionFront / AVCaptureDevicePositionBack
     [_captureManager addVideoOutput];
