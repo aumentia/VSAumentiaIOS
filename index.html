@@ -129,7 +129,7 @@ You just will need to set it up:</li>
     [_captureManager <span class="pl-s3">addVideoOutput</span>];
     [_captureManager <span class="pl-s3">addVideoPreviewLayer</span>];
 
-    CGRect layerRect = self.<span class="pl-vo">view</span>.<span class="pl-vo">bounds</span>;
+    <span class="pl-s3">CGRect</span> layerRect = self.<span class="pl-vo">view</span>.<span class="pl-vo">bounds</span>;
 
     [[_captureManager <span class="pl-s3">previewLayer</span>] <span class="pl-s3">setOpaque:</span> <span class="pl-c1">0</span>];
     [[_captureManager <span class="pl-s3">previewLayer</span>] <span class="pl-s3">setBounds:</span>layerRect ];
@@ -186,17 +186,17 @@ You can also set up your unique Id or let the library do it for you.</p>
 
 <p>To add images you can use these functions:</p>
 
-<div class="highlight highlight-objective-c"><pre>- (NSInteger) insertImage:(UIImage*)image;
+<div class="highlight highlight-objective-c"><pre>- (<span class="pl-st">NSInteger</span>) insertImage:(UIImage*)image;
 
-- (NSInteger) insertImageFromURL:(<span class="pl-s3">NSURL</span>*)imageUrl;
+- (<span class="pl-st">NSInteger</span>) insertImageFromURL:(<span class="pl-s3">NSURL</span>*)imageUrl;
 
-- (<span class="pl-st">BOOL</span>) insertImage:(UIImage*)image withId:(NSInteger)uId;
+- (<span class="pl-st">BOOL</span>) insertImage:(UIImage*)image withId:(<span class="pl-st">NSInteger</span>)uId;
 
-- (<span class="pl-st">BOOL</span>) insertImageFromURL:(<span class="pl-s3">NSURL</span>*)imageUrl withId:(NSInteger)uId;</pre></div>
+- (<span class="pl-st">BOOL</span>) insertImageFromURL:(<span class="pl-s3">NSURL</span>*)imageUrl withId:(<span class="pl-st">NSInteger</span>)uId;</pre></div>
 
 <p>You can also delete a single image providing its unique id:</p>
 
-<div class="highlight highlight-objective-c"><pre>- (<span class="pl-st">BOOL</span>) deleteImage:(NSInteger)uId;</pre></div>
+<div class="highlight highlight-objective-c"><pre>- (<span class="pl-st">BOOL</span>) deleteImage:(<span class="pl-st">NSInteger</span>)uId;</pre></div>
 
 <p>Or delete all the images in the db.</p>
 
@@ -256,7 +256,7 @@ Setting this param, the user decides the minimum quality of his pool of images.<
 
 <p>Then the engine will give you back the matching results: -1 if no image is recognised, != -1 if an image has been matched, being that result its unique id.</p>
 
-<div class="highlight highlight-objective-c"><pre>- (<span class="pl-st">void</span>)imageMatchedResult:(NSInteger)uId
+<div class="highlight highlight-objective-c"><pre>- (<span class="pl-st">void</span>)imageMatchedResult:(<span class="pl-st">NSInteger</span>)uId
 {
     <span class="pl-k">if</span> (uId != -<span class="pl-c1">1</span>)
     {
@@ -344,7 +344,7 @@ The supported standards are:</p>
 
 <div class="highlight highlight-objective-c"><pre>- (<span class="pl-st">void</span>)addCropRect
 {
-    CGRect myRect = <span class="pl-s3">CGRectMake</span>(<span class="pl-c1">20</span>, <span class="pl-c1">20</span>, <span class="pl-c1">200</span>, <span class="pl-c1">125</span>);
+    <span class="pl-s3">CGRect</span> myRect = <span class="pl-s3">CGRectMake</span>(<span class="pl-c1">20</span>, <span class="pl-c1">20</span>, <span class="pl-c1">200</span>, <span class="pl-c1">125</span>);
 
     [<span class="pl-v">self</span> <span class="pl-s3">addRectToView:</span>myRect];
 
@@ -354,7 +354,8 @@ The supported standards are:</p>
 <h2>
 <a id="featured-apps-using-the-vs-framework" class="anchor" href="#featured-apps-using-the-vs-framework" aria-hidden="true"><span class="octicon octicon-link"></span></a>Featured Apps using the VS Framework</h2>
 
-<p><a href="https://github.com/aumentia/HelloVisualSearch_iOS/wiki/Featured-Apps---Klikaklu"><img src="https://s3-us-west-1.amazonaws.com/aumentia/apps/klikaklu/klikaklu_logo_transparent_small.png"></a></p>
+<p><a href="https://github.com/aumentia/HelloVisualSearch_iOS/wiki/Featured-Apps---Klikaklu"><img src="https://s3-us-west-1.amazonaws.com/aumentia/apps/klikaklu/klikaklu_logo_transparent_small.png"></a>
+<a href="https://github.com/aumentia/HelloVisualSearch_iOS/wiki/Featured-Apps-Aura"><img src="https://s3-us-west-1.amazonaws.com/aumentia/apps/aura/Logo.png"></a></p>
       </section>
     </div>
 
