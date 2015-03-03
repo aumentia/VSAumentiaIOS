@@ -19,7 +19,7 @@
  * Description:
  * Author: Pablo GM (info@aumentia.com)
  * Created: 14/01/15.
- * Verion 1.02
+ * Verion 1.03
  *
  *
  **************************************************************************/
@@ -29,8 +29,9 @@
 #import <CoreGraphics/CoreGraphics.h>
 #import <CoreVideo/CoreVideo.h>
 #import <CoreMedia/CoreMedia.h>
-#import "ROI.h"
 #import "_vs_versions.h"
+
+@class Roi;
 
 #ifndef _vsPlugin
 #define _vsPlugin

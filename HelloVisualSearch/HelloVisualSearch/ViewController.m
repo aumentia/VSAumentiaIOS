@@ -81,24 +81,27 @@
 
 - (void)addImages
 {
-    /// LOCAL
-    for (int i = 1; i <= 6; i++)
+    @autoreleasepool
     {
-        NSString *imageName = [NSString stringWithFormat:@"pic%d.jpg", i];
-        BOOL res            = [_myVs insertImage:[UIImage imageNamed:imageName] withId:i];
+        /// LOCAL
+        for (int i = 1; i <= 6; i++)
+        {
+            NSString *imageName = [NSString stringWithFormat:@"pic%d.jpg", i];
+            BOOL res            = [_myVs insertImage:[UIImage imageNamed:imageName] withId:i];
+            
+            VSLog(@"Image %@ --> %@", imageName, res == YES ? @"ADDED" : @"NOT ADDED");
+        }
         
-        VSLog(@"Image %@ --> %@", imageName, res == YES ? @"ADDED" : @"NOT ADDED");
+        /// REMOTE
+        NSInteger resId = [_myVs insertImageFromURL:[NSURL URLWithString:@"https://s3-us-west-1.amazonaws.com/aumentia/pic_from_url.jpg"]];
+        
+        if(resId == -1) VSLog(@"Error adding image from URL")
+            else            VSLog(@"Image from URL added with id %ld", (long)resId);
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self removeLoading];
+        });
     }
-    
-    /// REMOTE
-    NSInteger resId = [_myVs insertImageFromURL:[NSURL URLWithString:@"https://s3-us-west-1.amazonaws.com/aumentia/pic_from_url.jpg"]];
-    
-    if(resId == -1) VSLog(@"Error adding image from URL")
-    else            VSLog(@"Image from URL added with id %ld", (long)resId);
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self removeLoading];
-    });
 }
 
 - (void)removeImages
