@@ -159,17 +159,6 @@ __attribute__((__visibility__("default"))) @interface vsPlugin : UIViewControlle
  */
 - (BOOL) insertImageFromURL:(NSURL*)imageUrl withId:(NSInteger)uId vs_AVAILABLE(vs_V_0_1_1);
 
-
-- (BOOL) addImageFromData:(NSData*)data withUniqeID:(NSNumber*)uId;
-
-- (void)addTrainedImage:(UIImage*)image;
-
-- (NSNumber*) addImageFromDataThroughUrl:(NSURL*)url;
-
-- (NSNumber*) insertImageFromDataWithPath:(NSString*)path;
-
-- (BOOL) insertImageFromDataWithPath:(NSString*)path withUniqeID:(NSNumber*)uId;
-
 /** @name Remove Images */
 
 /**
