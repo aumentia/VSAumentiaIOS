@@ -92,12 +92,12 @@
 <li>Include the <strong>VS.framework</strong> and add its protocols </li>
 </ul>
 
-<div class="highlight highlight-objective-c"><pre>#<span class="pl-k">import</span> <span class="pl-s1"><span class="pl-pds">&lt;</span>VS/vsPlugin.h<span class="pl-pds">&gt;</span></span>
+<div class="highlight highlight-objective-c"><pre>#<span class="pl-k">import</span> <span class="pl-s"><span class="pl-pds">&lt;</span>VS/vsPlugin.h<span class="pl-pds">&gt;</span></span>
 ...
 
-<span class="pl-st">@interface</span> <span class="pl-en">ViewController</span> : <span class="pl-e">UIViewController</span>&lt;imageMatchedProtocol, QRMatchedProtocol,...&gt;
+<span class="pl-k">@interface</span> <span class="pl-en">ViewController</span> : <span class="pl-e">UIViewController</span>&lt;imageMatchedProtocol, QRMatchedProtocol,...&gt;
 
-<span class="pl-st">@end</span></pre></div>
+<span class="pl-k">@end</span></pre></div>
 
 <ul>
 <li>The .m file where you include the framework must be compiled supporting cpp, so change the “<strong>File Type</strong>” to “<strong>Objective-C++ Source</strong>“. </li>
@@ -113,53 +113,53 @@ You just will need to set it up:</li>
 
 <div class="highlight highlight-objective-c"><pre>#<span class="pl-k">pragma mark</span> - Add external camera
 
-- (<span class="pl-st">void</span>)initCapture {
+- (<span class="pl-k">void</span>)initCapture {
 
     <span class="pl-c">// init capture manager</span>
-    _captureManager = [[CaptureSessionManager <span class="pl-s3">alloc</span>] <span class="pl-s3">init</span>];
+    _captureManager = [[CaptureSessionManager <span class="pl-c1">alloc</span>] <span class="pl-c1">init</span>];
 
-    _captureManager.<span class="pl-vo">delegate</span> = self;
+    _captureManager.<span class="pl-smi">delegate</span> = self;
 
     <span class="pl-c">// set video streaming quality</span>
-    _captureManager.<span class="pl-vo">captureSession</span>.<span class="pl-vo">sessionPreset</span> = AVCaptureSessionPresetMedium;   <span class="pl-c">//480x360</span>
+    _captureManager.<span class="pl-smi">captureSession</span>.<span class="pl-smi">sessionPreset</span> = AVCaptureSessionPresetMedium;   <span class="pl-c">//480x360</span>
 
-    [_captureManager <span class="pl-s3">setOutPutSetting:</span>[<span class="pl-s3">NSNumber</span> <span class="pl-s3">numberWithInt:</span><span class="pl-c1">kCVPixelFormatType_32BGRA</span>]]; <span class="pl-c">//kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange</span>
+    [_captureManager <span class="pl-c1">setOutPutSetting:</span>[<span class="pl-c1">NSNumber</span> <span class="pl-c1">numberWithInt:</span><span class="pl-c1">kCVPixelFormatType_32BGRA</span>]]; <span class="pl-c">//kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange</span>
 
-    [_captureManager <span class="pl-s3">addVideoInput:</span>AVCaptureDevicePositionBack]; <span class="pl-c">//AVCaptureDevicePositionFront / AVCaptureDevicePositionBack</span>
-    [_captureManager <span class="pl-s3">addVideoOutput</span>];
-    [_captureManager <span class="pl-s3">addVideoPreviewLayer</span>];
+    [_captureManager <span class="pl-c1">addVideoInput:</span>AVCaptureDevicePositionBack]; <span class="pl-c">//AVCaptureDevicePositionFront / AVCaptureDevicePositionBack</span>
+    [_captureManager <span class="pl-c1">addVideoOutput</span>];
+    [_captureManager <span class="pl-c1">addVideoPreviewLayer</span>];
 
-    <span class="pl-s3">CGRect</span> layerRect = self.<span class="pl-vo">view</span>.<span class="pl-vo">bounds</span>;
+    <span class="pl-c1">CGRect</span> layerRect = self.<span class="pl-smi">view</span>.<span class="pl-smi">bounds</span>;
 
-    [[_captureManager <span class="pl-s3">previewLayer</span>] <span class="pl-s3">setOpaque:</span> <span class="pl-c1">0</span>];
-    [[_captureManager <span class="pl-s3">previewLayer</span>] <span class="pl-s3">setBounds:</span>layerRect ];
-    [[_captureManager <span class="pl-s3">previewLayer</span>] <span class="pl-s3">setPosition:</span><span class="pl-s3">CGPointMake</span>( <span class="pl-s3">CGRectGetMidX</span>(layerRect), <span class="pl-s3">CGRectGetMidY</span>(layerRect) ) ];
+    [[_captureManager <span class="pl-c1">previewLayer</span>] <span class="pl-c1">setOpaque:</span> <span class="pl-c1">0</span>];
+    [[_captureManager <span class="pl-c1">previewLayer</span>] <span class="pl-c1">setBounds:</span>layerRect ];
+    [[_captureManager <span class="pl-c1">previewLayer</span>] <span class="pl-c1">setPosition:</span><span class="pl-c1">CGPointMake</span>( <span class="pl-c1">CGRectGetMidX</span>(layerRect), <span class="pl-c1">CGRectGetMidY</span>(layerRect) ) ];
 
     <span class="pl-c">// create a view, on which we attach the AV Preview layer</span>
-    _cameraView = [[UIView <span class="pl-s3">alloc</span>] <span class="pl-s3">initWithFrame:</span><span class="pl-v">self</span>.view.bounds];
-    [[_cameraView <span class="pl-s3">layer</span>] <span class="pl-s3">addSublayer:</span>[_captureManager <span class="pl-s3">previewLayer</span>]];
+    _cameraView = [[UIView <span class="pl-c1">alloc</span>] <span class="pl-c1">initWithFrame:</span><span class="pl-v">self</span>.view.bounds];
+    [[_cameraView <span class="pl-c1">layer</span>] <span class="pl-c1">addSublayer:</span>[_captureManager <span class="pl-c1">previewLayer</span>]];
 
     <span class="pl-c">// add the view we just created as a subview to the View Controller's view</span>
-    [<span class="pl-v">self</span>.view <span class="pl-s3">addSubview:</span> _cameraView];
+    [<span class="pl-v">self</span>.view <span class="pl-c1">addSubview:</span> _cameraView];
 
     <span class="pl-c">// start !</span>
-    [<span class="pl-v">self</span> <span class="pl-s3">performSelectorInBackground:</span><span class="pl-st">@selector</span>(<span class="pl-s3">start_captureManager</span>) <span class="pl-s3">withObject:</span><span class="pl-c1">nil</span>];
+    [<span class="pl-v">self</span> <span class="pl-c1">performSelectorInBackground:</span><span class="pl-k">@selector</span>(<span class="pl-c1">start_captureManager</span>) <span class="pl-c1">withObject:</span><span class="pl-c1">nil</span>];
 
 }
 
-- (<span class="pl-st">void</span>)removeCapture
+- (<span class="pl-k">void</span>)removeCapture
 {
-    [_captureManager.captureSession <span class="pl-s3">stopRunning</span>];
-    [_cameraView <span class="pl-s3">removeFromSuperview</span>];
+    [_captureManager.captureSession <span class="pl-c1">stopRunning</span>];
+    [_cameraView <span class="pl-c1">removeFromSuperview</span>];
     _captureManager     = <span class="pl-c1">nil</span>;
     _cameraView         = <span class="pl-c1">nil</span>;
 }
 
-- (<span class="pl-st">void</span>)start_captureManager
+- (<span class="pl-k">void</span>)start_captureManager
 {
     @autoreleasepool
     {
-        [[_captureManager <span class="pl-s3">captureSession</span>] <span class="pl-s3">startRunning</span>];
+        [[_captureManager <span class="pl-c1">captureSession</span>] <span class="pl-c1">startRunning</span>];
     }
 }</pre></div>
 
@@ -167,14 +167,14 @@ You just will need to set it up:</li>
 
 <div class="highlight highlight-objective-c"><pre>#<span class="pl-k">pragma mark</span> - External Camera Delegates
 
-- (<span class="pl-st">void</span>)processNewCameraFrameRGB:(CVImageBufferRef)cameraFrame
+- (<span class="pl-k">void</span>)processNewCameraFrameRGB:(CVImageBufferRef)cameraFrame
 {
-    [_myVs <span class="pl-s3">processRGBFrame:</span>cameraFrame <span class="pl-s3">saveImageToPhotoAlbum:</span><span class="pl-c1">NO</span> ];
+    [_myVs <span class="pl-c1">processRGBFrame:</span>cameraFrame <span class="pl-c1">saveImageToPhotoAlbum:</span><span class="pl-c1">NO</span> ];
 }
 
-- (<span class="pl-st">void</span>)processNewCameraFrameYUV:(CVImageBufferRef)cameraFrame
+- (<span class="pl-k">void</span>)processNewCameraFrameYUV:(CVImageBufferRef)cameraFrame
 {
-    [_myVs <span class="pl-s3">processYUVFrame:</span>cameraFrame <span class="pl-s3">saveImageToPhotoAlbum:</span><span class="pl-c1">NO</span>];
+    [_myVs <span class="pl-c1">processYUVFrame:</span>cameraFrame <span class="pl-c1">saveImageToPhotoAlbum:</span><span class="pl-c1">NO</span>];
 }</pre></div>
 
 <h2>
@@ -186,21 +186,21 @@ You can also set up your unique Id or let the library do it for you.</p>
 
 <p>To add images you can use these functions:</p>
 
-<div class="highlight highlight-objective-c"><pre>- (<span class="pl-st">NSInteger</span>) insertImage:(UIImage*)image;
+<div class="highlight highlight-objective-c"><pre>- (<span class="pl-k">NSInteger</span>) insertImage:(UIImage*)image;
 
-- (<span class="pl-st">NSInteger</span>) insertImageFromURL:(<span class="pl-s3">NSURL</span>*)imageUrl;
+- (<span class="pl-k">NSInteger</span>) insertImageFromURL:(<span class="pl-c1">NSURL</span>*)imageUrl;
 
-- (<span class="pl-st">BOOL</span>) insertImage:(UIImage*)image withId:(<span class="pl-st">NSInteger</span>)uId;
+- (<span class="pl-k">BOOL</span>) insertImage:(UIImage*)image withId:(<span class="pl-k">NSInteger</span>)uId;
 
-- (<span class="pl-st">BOOL</span>) insertImageFromURL:(<span class="pl-s3">NSURL</span>*)imageUrl withId:(<span class="pl-st">NSInteger</span>)uId;</pre></div>
+- (<span class="pl-k">BOOL</span>) insertImageFromURL:(<span class="pl-c1">NSURL</span>*)imageUrl withId:(<span class="pl-k">NSInteger</span>)uId;</pre></div>
 
 <p>You can also delete a single image providing its unique id:</p>
 
-<div class="highlight highlight-objective-c"><pre>- (<span class="pl-st">BOOL</span>) deleteImage:(<span class="pl-st">NSInteger</span>)uId;</pre></div>
+<div class="highlight highlight-objective-c"><pre>- (<span class="pl-k">BOOL</span>) deleteImage:(<span class="pl-k">NSInteger</span>)uId;</pre></div>
 
 <p>Or delete all the images in the db.</p>
 
-<div class="highlight highlight-objective-c"><pre>- (<span class="pl-st">BOOL</span>) deleteAllImages;</pre></div>
+<div class="highlight highlight-objective-c"><pre>- (<span class="pl-k">BOOL</span>) deleteAllImages;</pre></div>
 
 <h3>
 <a id="how-to-create-a-good-pool" class="anchor" href="#how-to-create-a-good-pool" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to create a “good pool”</h3>
@@ -235,32 +235,32 @@ Setting this param, the user decides the minimum quality of his pool of images.<
 <li><p>It is recommended to use the motion filter. This filter checks if the device is moving and if so, it does not look for matches avoiding false positive with undefined frames while moving: </p></li>
 </ul>
 
-<div class="highlight highlight-objective-c"><pre>- (<span class="pl-st">void</span>)initMotionDetection;
+<div class="highlight highlight-objective-c"><pre>- (<span class="pl-k">void</span>)initMotionDetection;
 
-- (<span class="pl-st">void</span>)removeMotionDetection;</pre></div>
+- (<span class="pl-k">void</span>)removeMotionDetection;</pre></div>
 
 <h3>
 <a id="detection-callbacks" class="anchor" href="#detection-callbacks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Detection callbacks</h3>
 
 <p>First you need to implement the <strong>CaptureSessionManger</strong> class callbacks. Remember that those callbacks will provide you the video feed frames, frames that you will send to be analysed by the library.</p>
 
-<div class="highlight highlight-objective-c"><pre>- (<span class="pl-st">void</span>)processNewCameraFrameRGB:(CVImageBufferRef)cameraFrame
+<div class="highlight highlight-objective-c"><pre>- (<span class="pl-k">void</span>)processNewCameraFrameRGB:(CVImageBufferRef)cameraFrame
 {
-    [_myVs <span class="pl-s3">processRGBFrame:</span>cameraFrame <span class="pl-s3">saveImageToPhotoAlbum:</span><span class="pl-c1">NO</span> ];
+    [_myVs <span class="pl-c1">processRGBFrame:</span>cameraFrame <span class="pl-c1">saveImageToPhotoAlbum:</span><span class="pl-c1">NO</span> ];
 }</pre></div>
 
-<div class="highlight highlight-objective-c"><pre>- (<span class="pl-st">void</span>)processNewCameraFrameYUV:(CVImageBufferRef)cameraFrame
+<div class="highlight highlight-objective-c"><pre>- (<span class="pl-k">void</span>)processNewCameraFrameYUV:(CVImageBufferRef)cameraFrame
 {
-    [_myVs <span class="pl-s3">processYUVFrame:</span>cameraFrame <span class="pl-s3">saveImageToPhotoAlbum:</span><span class="pl-c1">NO</span>];
+    [_myVs <span class="pl-c1">processYUVFrame:</span>cameraFrame <span class="pl-c1">saveImageToPhotoAlbum:</span><span class="pl-c1">NO</span>];
 }</pre></div>
 
 <p>Then the engine will give you back the matching results: -1 if no image is recognised, != -1 if an image has been matched, being that result its unique id.</p>
 
-<div class="highlight highlight-objective-c"><pre>- (<span class="pl-st">void</span>)imageMatchedResult:(<span class="pl-st">NSInteger</span>)uId
+<div class="highlight highlight-objective-c"><pre>- (<span class="pl-k">void</span>)imageMatchedResult:(<span class="pl-k">NSInteger</span>)uId
 {
     <span class="pl-k">if</span> (uId != -<span class="pl-c1">1</span>)
     {
-        <span class="pl-s3">VSLog</span>(<span class="pl-s1"><span class="pl-pds">@"</span>Image detected --&gt; <span class="pl-c1">%d</span><span class="pl-pds">"</span></span>, uId);
+        <span class="pl-c1">VSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>Image detected --&gt; <span class="pl-c1">%d</span><span class="pl-pds">"</span></span>, uId);
     }
 }</pre></div>
 
@@ -294,19 +294,19 @@ The supported standards are:</p>
 
 <p>You can also read <strong>multiple QR / bar codes a time</strong>. To do that you will need to define ROIs, regions of interest, where to “look for” readable codes.</p>
 
-<div class="highlight highlight-objective-c"><pre>- (<span class="pl-st">void</span>)addQRRois
+<div class="highlight highlight-objective-c"><pre>- (<span class="pl-k">void</span>)addQRRois
 {
     <span class="pl-c">// Add regions to match several QR / bar codes</span>
-    Roi *ROI1 = [[Roi <span class="pl-s3">alloc</span>] <span class="pl-s3">initWithRect:</span><span class="pl-s3">CGRectMake</span>(<span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">160</span>, <span class="pl-c1">240</span>)];
-    Roi *ROI2 = [[Roi <span class="pl-s3">alloc</span>] <span class="pl-s3">initWithRect:</span><span class="pl-s3">CGRectMake</span>(<span class="pl-c1">0</span>, <span class="pl-c1">240</span>, <span class="pl-c1">160</span>, <span class="pl-c1">240</span>)];
-    Roi *ROI3 = [[Roi <span class="pl-s3">alloc</span>] <span class="pl-s3">initWithRect:</span><span class="pl-s3">CGRectMake</span>(<span class="pl-c1">160</span>, <span class="pl-c1">0</span>, <span class="pl-c1">160</span>, <span class="pl-c1">240</span>)];
-    Roi *ROI4 = [[Roi <span class="pl-s3">alloc</span>] <span class="pl-s3">initWithRect:</span><span class="pl-s3">CGRectMake</span>(<span class="pl-c1">160</span>, <span class="pl-c1">240</span>, <span class="pl-c1">160</span>, <span class="pl-c1">240</span>)];
+    Roi *ROI1 = [[Roi <span class="pl-c1">alloc</span>] <span class="pl-c1">initWithRect:</span><span class="pl-c1">CGRectMake</span>(<span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">160</span>, <span class="pl-c1">240</span>)];
+    Roi *ROI2 = [[Roi <span class="pl-c1">alloc</span>] <span class="pl-c1">initWithRect:</span><span class="pl-c1">CGRectMake</span>(<span class="pl-c1">0</span>, <span class="pl-c1">240</span>, <span class="pl-c1">160</span>, <span class="pl-c1">240</span>)];
+    Roi *ROI3 = [[Roi <span class="pl-c1">alloc</span>] <span class="pl-c1">initWithRect:</span><span class="pl-c1">CGRectMake</span>(<span class="pl-c1">160</span>, <span class="pl-c1">0</span>, <span class="pl-c1">160</span>, <span class="pl-c1">240</span>)];
+    Roi *ROI4 = [[Roi <span class="pl-c1">alloc</span>] <span class="pl-c1">initWithRect:</span><span class="pl-c1">CGRectMake</span>(<span class="pl-c1">160</span>, <span class="pl-c1">240</span>, <span class="pl-c1">160</span>, <span class="pl-c1">240</span>)];
 
     <span class="pl-c">// Add them to the system</span>
-    [_myVs <span class="pl-s3">addQRRect:</span>ROI1];
-    [_myVs <span class="pl-s3">addQRRect:</span>ROI2];
-    [_myVs <span class="pl-s3">addQRRect:</span>ROI3];
-    [_myVs <span class="pl-s3">addQRRect:</span>ROI4];
+    [_myVs <span class="pl-c1">addQRRect:</span>ROI1];
+    [_myVs <span class="pl-c1">addQRRect:</span>ROI2];
+    [_myVs <span class="pl-c1">addQRRect:</span>ROI3];
+    [_myVs <span class="pl-c1">addQRRect:</span>ROI4];
 }</pre></div>
 
 <h3>
@@ -315,26 +315,26 @@ The supported standards are:</p>
 <p>When a single or multiple QR / bar code is/are read, the QRMatchedProtocol protocol will give you the value/s:</p>
 
 <div class="highlight highlight-objective-c"><pre>
-- (<span class="pl-st">void</span>)singleQRMatchedResult:(<span class="pl-s3">NSString</span> *)res
+- (<span class="pl-k">void</span>)singleQRMatchedResult:(<span class="pl-c1">NSString</span> *)res
 {
-    <span class="pl-k">if</span> ( ![res <span class="pl-s3">isEqualToString:</span><span class="pl-s1"><span class="pl-pds">@"</span><span class="pl-pds">"</span></span>])
+    <span class="pl-k">if</span> ( ![res <span class="pl-c1">isEqualToString:</span><span class="pl-s"><span class="pl-pds">@"</span><span class="pl-pds">"</span></span>])
     {
-        <span class="pl-s3">VSLog</span>(<span class="pl-s1"><span class="pl-pds">@"</span>QR / bar code detected --&gt; <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, res);
+        <span class="pl-c1">VSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>QR / bar code detected --&gt; <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, res);
     }
 }
 
-- (<span class="pl-st">void</span>)multipleQRMatchedResult:(<span class="pl-s3">NSArray</span> *)codes
+- (<span class="pl-k">void</span>)multipleQRMatchedResult:(<span class="pl-c1">NSArray</span> *)codes
 {
-    <span class="pl-s3">NSString</span> *code = <span class="pl-s1"><span class="pl-pds">@"</span><span class="pl-pds">"</span></span>;
+    <span class="pl-c1">NSString</span> *code = <span class="pl-s"><span class="pl-pds">@"</span><span class="pl-pds">"</span></span>;
 
-    <span class="pl-k">for</span> (<span class="pl-st">int</span> i = <span class="pl-c1">0</span>; i &lt; [codes <span class="pl-s3">count</span>]; i++)
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; [codes <span class="pl-c1">count</span>]; i++)
     {
-        Roi *roi = [codes <span class="pl-s3">objectAtIndex:</span>i];
+        Roi *roi = [codes <span class="pl-c1">objectAtIndex:</span>i];
 
         code = <span class="pl-c1">1</span>;
     }
 
-    <span class="pl-s3">VSLog</span>(<span class="pl-s1"><span class="pl-pds">@"</span>Multiple QR / bar codes detected --&gt; <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, code);
+    <span class="pl-c1">VSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>Multiple QR / bar codes detected --&gt; <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, code);
 }</pre></div>
 
 <h2>
@@ -342,20 +342,14 @@ The supported standards are:</p>
 
 <p>If you don't want to analyse the whole frame but part of it, you can crop it:</p>
 
-<div class="highlight highlight-objective-c"><pre>- (<span class="pl-st">void</span>)addCropRect
+<div class="highlight highlight-objective-c"><pre>- (<span class="pl-k">void</span>)addCropRect
 {
-    <span class="pl-s3">CGRect</span> myRect = <span class="pl-s3">CGRectMake</span>(<span class="pl-c1">20</span>, <span class="pl-c1">20</span>, <span class="pl-c1">200</span>, <span class="pl-c1">125</span>);
+    <span class="pl-c1">CGRect</span> myRect = <span class="pl-c1">CGRectMake</span>(<span class="pl-c1">20</span>, <span class="pl-c1">20</span>, <span class="pl-c1">200</span>, <span class="pl-c1">125</span>);
 
-    [<span class="pl-v">self</span> <span class="pl-s3">addRectToView:</span>myRect];
+    [<span class="pl-v">self</span> <span class="pl-c1">addRectToView:</span>myRect];
 
-    [_myVs <span class="pl-s3">setImageCropRect:</span>myRect];
+    [_myVs <span class="pl-c1">setImageCropRect:</span>myRect];
 }</pre></div>
-
-<h2>
-<a id="featured-apps-using-the-vs-framework" class="anchor" href="#featured-apps-using-the-vs-framework" aria-hidden="true"><span class="octicon octicon-link"></span></a>Featured Apps using the VS Framework</h2>
-
-<p><a href="https://github.com/aumentia/HelloVisualSearch_iOS/wiki/Featured-Apps---Klikaklu"><img src="https://s3-us-west-1.amazonaws.com/aumentia/apps/klikaklu/klikaklu_logo_transparent_small.png"></a>
-<a href="https://github.com/aumentia/HelloVisualSearch_iOS/wiki/Featured-Apps-Aura"><img src="https://s3-us-west-1.amazonaws.com/aumentia/apps/aura/Logo.png"></a></p>
       </section>
     </div>
 
@@ -363,7 +357,7 @@ The supported standards are:</p>
     <div id="footer_wrap" class="outer">
       <footer class="inner">
         <p class="copyright">Visual Search Framework [iOS] maintained by <a href="https://github.com/aumentia">aumentia</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
 
