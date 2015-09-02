@@ -18,6 +18,12 @@ Visual Search Framework
 
 <br>
 **********************
+    NEW: Motion Recognition
+**********************
+* Define virtual buttons (regions of interest) to detect motion
+
+<br>
+**********************
     Request an API Key
 **********************
 To use the framework you will need an API Key. To request it, just send an email to info@aumentia.com with the following details:
