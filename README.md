@@ -2,7 +2,7 @@ Visual Search Framework
 =======================
 
 <p align="left" >
-  <img src="https://s3-us-west-1.amazonaws.com/aumentia/logoaumentia_small.png" alt="Aumentia" title="Aumentia">
+  <img src="http://www.aumentia.com/images/sdks/sdkvisual.png" alt="Aumentia" title="Aumentia">
 </p>
 
 * Add visual search to your app.
