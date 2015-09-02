@@ -87,9 +87,9 @@
     @autoreleasepool
     {
         /// LOCAL
-        for (int i = 1; i <= 38; i++)
+        for (int i = 1; i <= 6; i++)
         {
-            NSString *imageName = [NSString stringWithFormat:@"pic%d.jpeg", i];
+            NSString *imageName = [NSString stringWithFormat:@"pic%d.jpg", i];
             BOOL res            = [_myVs insertImage:[UIImage imageNamed:imageName] withId:i];
             
             VSLog(@"Image %@ --> %@", imageName, res == YES ? @"ADDED" : @"NOT ADDED");
@@ -99,7 +99,7 @@
         NSInteger resId = [_myVs insertImageFromURL:[NSURL URLWithString:@"https://s3-us-west-1.amazonaws.com/aumentia/pic_from_url.jpg"]];
         
         if(resId == -1) VSLog(@"Error adding image from URL")
-            else            VSLog(@"Image from URL added with id %ld", (long)resId);
+        else            VSLog(@"Image from URL added with id %ld", (long)resId);
         
         dispatch_async(dispatch_get_main_queue(), ^{
             [self removeLoading];
