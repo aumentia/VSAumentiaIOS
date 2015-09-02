@@ -246,13 +246,13 @@
             
             if(_resPic == nil)
             {
-                _resPic = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"pic%ld.jpeg", (long)uId]]];
+                _resPic = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"pic%ld.jpg", (long)uId]]];
                 [_resPic setFrame:CGRectMake(0, self.view.frame.size.height - 70, 100, 63)];
                 [self.view addSubview:_resPic];
             }
             else
             {
-                [_resPic setImage:[UIImage imageNamed:[NSString stringWithFormat:@"pic%ld.jpeg", (long)uId]]];
+                [_resPic setImage:[UIImage imageNamed:[NSString stringWithFormat:@"pic%ld.jpg", (long)uId]]];
             }
             
             //VSAlert(@"Image detected --> %d", uId);
