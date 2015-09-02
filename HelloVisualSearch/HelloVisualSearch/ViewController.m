@@ -52,8 +52,11 @@
     
     [self addLoading];
     
-    [self performSelectorInBackground:@selector(addImages) withObject:nil];
-    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+       
+        [self addImages];
+        
+    });
     
     ///// TESTS //////
     //[self addCropRect];
@@ -81,24 +84,27 @@
 
 - (void)addImages
 {
-    /// LOCAL
-    for (int i = 1; i <= 6; i++)
+    @autoreleasepool
     {
-        NSString *imageName = [NSString stringWithFormat:@"pic%d.jpg", i];
-        BOOL res            = [_myVs insertImage:[UIImage imageNamed:imageName] withId:i];
+        /// LOCAL
+        for (int i = 1; i <= 38; i++)
+        {
+            NSString *imageName = [NSString stringWithFormat:@"pic%d.jpeg", i];
+            BOOL res            = [_myVs insertImage:[UIImage imageNamed:imageName] withId:i];
+            
+            VSLog(@"Image %@ --> %@", imageName, res == YES ? @"ADDED" : @"NOT ADDED");
+        }
         
-        VSLog(@"Image %@ --> %@", imageName, res == YES ? @"ADDED" : @"NOT ADDED");
+        /// REMOTE
+        NSInteger resId = [_myVs insertImageFromURL:[NSURL URLWithString:@"https://s3-us-west-1.amazonaws.com/aumentia/pic_from_url.jpg"]];
+        
+        if(resId == -1) VSLog(@"Error adding image from URL")
+            else            VSLog(@"Image from URL added with id %ld", (long)resId);
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self removeLoading];
+        });
     }
-    
-    /// REMOTE
-    NSInteger resId = [_myVs insertImageFromURL:[NSURL URLWithString:@"https://s3-us-west-1.amazonaws.com/aumentia/pic_from_url.jpg"]];
-    
-    if(resId == -1) VSLog(@"Error adding image from URL")
-    else            VSLog(@"Image from URL added with id %ld", (long)resId);
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self removeLoading];
-    });
 }
 
 - (void)removeImages
@@ -144,7 +150,7 @@
         [_myVs setMatchingThreshold:8];
         
         // Set mode: search for QR and / or bar codes and images
-        [_myVs setSearchMode:search_image];
+        [_myVs setSearchMode:search_all];
         
         // Add motion filter
         [_myVs initMotionDetectionWithThreshold:3 enableDebugLog:NO];
@@ -240,13 +246,13 @@
             
             if(_resPic == nil)
             {
-                _resPic = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"pic%ld.jpg", (long)uId]]];
+                _resPic = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"pic%ld.jpeg", (long)uId]]];
                 [_resPic setFrame:CGRectMake(0, self.view.frame.size.height - 70, 100, 63)];
                 [self.view addSubview:_resPic];
             }
             else
             {
-                [_resPic setImage:[UIImage imageNamed:[NSString stringWithFormat:@"pic%ld.jpg", (long)uId]]];
+                [_resPic setImage:[UIImage imageNamed:[NSString stringWithFormat:@"pic%ld.jpeg", (long)uId]]];
             }
             
             //VSAlert(@"Image detected --> %d", uId);
@@ -312,7 +318,7 @@
     _captureManager.delegate = self;
     
     // set video streaming quality
-    _captureManager.captureSession.sessionPreset = AVCaptureSessionPresetHigh;
+    _captureManager.captureSession.sessionPreset = AVCaptureSessionPresetPhoto;
     
     [_captureManager setOutPutSetting:[NSNumber numberWithInt:kCVPixelFormatType_32BGRA]]; //kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange, kCVPixelFormatType_420YpCbCr8BiPlanarFullRange or kCVPixelFormatType_32BGRA
     
@@ -334,8 +340,9 @@
     [self.view addSubview: _cameraView];
     
     // start !
-    [self performSelectorInBackground:@selector(start_captureManager) withObject:nil];
-    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self start_captureManager];
+    });
 }
 
 - (void)removeCapture

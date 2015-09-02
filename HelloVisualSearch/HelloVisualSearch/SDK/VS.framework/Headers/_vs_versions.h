@@ -27,6 +27,7 @@
 #define vs_V_0_1_1 0.1.1
 #define vs_V_0_1_2 0.1.2
 #define vs_V_0_1_3 0.1.3
+#define vs_V_0_5 0.5
 #define vs_V_1_0 1.0
 #define vs_V_1_1 1.1
 #define UNKNOWN

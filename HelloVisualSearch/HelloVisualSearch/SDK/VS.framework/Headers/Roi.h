@@ -29,9 +29,20 @@
 
 @interface Roi : NSObject
 
+/**
+ * Region of interest bounds
+ */
 @property (assign, nonatomic) CGRect roiRect;
+
+/**
+ * QR/bar code scanned string.
+ */
 @property (strong, nonatomic) NSString* qrString;
 
+/**
+ * Init a ROI instance
+ * @param rect ROI bounds
+ */
 -(id)initWithRect:(CGRect)rect;
 
 @end

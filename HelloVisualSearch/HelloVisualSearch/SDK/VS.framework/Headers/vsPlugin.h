@@ -29,18 +29,28 @@
 #import <CoreGraphics/CoreGraphics.h>
 #import <CoreVideo/CoreVideo.h>
 #import <CoreMedia/CoreMedia.h>
-#import "ROI.h"
 #import "_vs_versions.h"
+
+@class Roi;
 
 #ifndef _vsPlugin
 #define _vsPlugin
 
-typedef enum
+typedef NS_ENUM(NSInteger, search_mode)
 {
-    search_image,
-    search_QRcodes,
-    search_all
-}search_mode;
+    /**
+     * Search images
+     */
+    search_image     = 0,
+    /**
+     * Search QR/bar codes
+     */
+    search_QRcodes = 1,
+    /**
+     * Search images and QR/bar codes simultaneously
+     */
+    search_all = 2,
+};
 
 
 /**
@@ -56,6 +66,9 @@ typedef enum
  */
 -(void)imageMatchedResult:(NSInteger)uId ;
 
+/**
+ * TODO
+ */
 -(void)trainedImageAdded:(NSInteger)uId;
 
 @end
@@ -159,16 +172,6 @@ __attribute__((__visibility__("default"))) @interface vsPlugin : UIViewControlle
 - (BOOL) insertImageFromURL:(NSURL*)imageUrl withId:(NSInteger)uId vs_AVAILABLE(vs_V_0_1_1);
 
 
-- (BOOL) addImageFromData:(NSData*)data withUniqeID:(NSNumber*)uId;
-
-- (void)addTrainedImage:(UIImage*)image;
-
-- (NSNumber*) addImageFromDataThroughUrl:(NSURL*)url;
-
-- (NSNumber*) insertImageFromDataWithPath:(NSString*)path;
-
-- (BOOL) insertImageFromDataWithPath:(NSString*)path withUniqeID:(NSNumber*)uId;
-
 /** @name Remove Images */
 
 /**
@@ -187,7 +190,6 @@ __attribute__((__visibility__("default"))) @interface vsPlugin : UIViewControlle
  *
  */
 - (BOOL) deleteAllImages vs_AVAILABLE(vs_V_0_1_1);
-
 
 
 /** @name Process Images / Frames */
@@ -299,6 +301,17 @@ __attribute__((__visibility__("default"))) @interface vsPlugin : UIViewControlle
  */
 - (void)removeMotionDetection vs_AVAILABLE(vs_V_0_1_1);
 
+/* TODO
+ - (BOOL) addImageFromData:(NSData*)data withUniqeID:(NSNumber*)uId;
+ 
+ - (void)addTrainedImage:(UIImage*)image;
+ 
+ - (NSNumber*) addImageFromDataThroughUrl:(NSURL*)url;
+ 
+ - (NSNumber*) insertImageFromDataWithPath:(NSString*)path;
+ 
+ - (BOOL) insertImageFromDataWithPath:(NSString*)path withUniqeID:(NSNumber*)uId;
+ */
 
 
 /** @name Properties */
