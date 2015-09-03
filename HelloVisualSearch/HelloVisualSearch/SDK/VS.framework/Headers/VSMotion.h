@@ -15,7 +15,7 @@
  * is strictly forbidden unless prior written permission is obtained
  * from Aumentia Technologies.
  *
- * File: VSMotion.h
+ * File: vsMotion.h
  * Description:
  * Author: Pablo GM (info@aumentia.com)
  * Created: 01/09/15.
@@ -26,7 +26,7 @@
 
 #import "_vs_versions.h"
 
-@protocol VSMotionProtocol <NSObject>
+@protocol vsMotionProtocol <NSObject>
 
 @optional
 
@@ -49,20 +49,20 @@
  * Default values to disable the buttons once one is clicked
  *
  */
-typedef NS_ENUM(NSInteger, VSMotionDelay)
+typedef NS_ENUM(NSInteger, vsMotionDelay)
 {
     /**
      * Delay of 5 frames
      */
-    LOWDELAY     = 5,
+    LOWDELAY        = 5,
     /**
      * Delay of 10 frames
      */
-    MEDIUMDELAY = 10,
+    MEDIUMDELAY     = 10,
     /**
      * Delay of 25 frames
      */
-    HIGHDELAY = 25,
+    HIGHDELAY       = 25,
 };
 
 /**
@@ -72,7 +72,7 @@ typedef NS_ENUM(NSInteger, VSMotionDelay)
  *
  */
 
-__attribute__((__visibility__("default"))) @interface VSMotion : NSObject
+__attribute__((__visibility__("default"))) @interface vsMotion : NSObject
 
 
 /** @name Properties */
@@ -80,7 +80,7 @@ __attribute__((__visibility__("default"))) @interface VSMotion : NSObject
 /**
  *  Protocol delegate.
  */
-@property (weak, nonatomic) id <VSMotionProtocol> VSMotionDelegate;
+@property (weak, nonatomic) id <vsMotionProtocol> vsMotionDelegate;
 
 
 /** @name Init and Config */
@@ -101,7 +101,7 @@ __attribute__((__visibility__("default"))) @interface VSMotion : NSObject
  * @param   period Number of frames.
  *
  * @discussion  The inactive time will change depending on the device framerate.
- * See default values @link VSMotionDelay
+ * See default values @link vsMotionDelay
  */
 -(void)setInactivePeriod:(NSNumber*)period vs_AVAILABLE(vs_V_0_5);
 

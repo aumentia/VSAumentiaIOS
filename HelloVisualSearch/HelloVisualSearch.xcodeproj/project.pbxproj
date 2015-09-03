@@ -200,7 +200,7 @@
 		5D2A696017062C1A006F4AD9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = Aumentia;
 			};
 			buildConfigurationList = 5D2A696317062C1A006F4AD9 /* Build configuration list for PBXProject "HelloVisualSearch" */;
@@ -327,7 +327,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-mthumb",
 					"-lstdc++",
@@ -391,6 +391,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HelloVisualSearch/HelloVisualSearch-Prefix.pch";
 				INFOPLIST_FILE = "HelloVisualSearch/HelloVisualSearch-Info.plist";
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-mthumb",
 					"-lstdc++",
@@ -417,6 +418,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HelloVisualSearch/HelloVisualSearch-Prefix.pch";
 				INFOPLIST_FILE = "HelloVisualSearch/HelloVisualSearch-Info.plist";
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-mthumb",
 					"-lstdc++",
