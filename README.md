@@ -15,7 +15,7 @@ Visual Search Framework
 * Define you matching areas: Regions of Interest.
 * Match images and QR codes simultaneously
 * **arm64 support**
-* **Swift support**
+* **[Swift support](https://github.com/aumentia/HelloVisualSearch_iOS/wiki/Connect-to-SWIFT)**
 
 <br>
 **********************
