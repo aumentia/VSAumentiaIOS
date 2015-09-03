@@ -2,7 +2,7 @@ Visual Search Framework
 =======================
 
 <p align="left" >
-  <img src="https://s3-us-west-1.amazonaws.com/aumentia/logoaumentia_small.png" alt="Aumentia" title="Aumentia">
+  <img src="http://www.aumentia.com/images/sdks/sdkvisual.png" alt="Aumentia" title="Aumentia">
 </p>
 
 * Add visual search to your app.
@@ -15,6 +15,12 @@ Visual Search Framework
 * Define you matching areas: Regions of Interest.
 * Match images and QR codes simultaneously
 * **arm64 support**
+
+<br>
+**********************
+    NEW: Motion Recognition
+**********************
+* Define virtual buttons (regions of interest) to detect motion
 
 <br>
 **********************
