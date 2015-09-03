@@ -15,6 +15,7 @@ Visual Search Framework
 * Define you matching areas: Regions of Interest.
 * Match images and QR codes simultaneously
 * **arm64 support**
+* **Swift support**
 
 <br>
 **********************
