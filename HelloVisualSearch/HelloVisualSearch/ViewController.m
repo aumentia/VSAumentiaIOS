@@ -35,7 +35,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [super viewDidLoad];
+    [super viewDidAppear:animated];
 	
     UIImage *myLogo         = [UIImage imageNamed:@"aumentia®.png"];
     UIImageView *myLogoView = [[UIImageView alloc] initWithImage:myLogo];

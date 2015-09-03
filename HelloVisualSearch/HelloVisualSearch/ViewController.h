@@ -8,8 +8,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <VS/vsPlugin.h>
-#import <VS/Roi.h>
+#import <VS/VS.h>
 #import "CaptureSessionManager.h"
 
 @interface ViewController : UIViewController<imageMatchedProtocol, QRMatchedProtocol, CameraCaptureDelegate>
