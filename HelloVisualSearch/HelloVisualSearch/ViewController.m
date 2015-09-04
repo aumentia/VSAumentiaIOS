@@ -46,6 +46,8 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
+    
     [self initCapture];
     
     [self addVisualSearch];
@@ -66,6 +68,8 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
+    [super viewWillDisappear:animated];
+    
     [self removeCapture];
     
     [self removeImages];
