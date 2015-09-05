@@ -16,14 +16,14 @@
     <!-- HEADER -->
     <div id="header_wrap" class="outer">
         <header class="inner">
-          <a id="forkme_banner" href="https://github.com/aumentia/HelloVisualSearch_iOS">View on GitHub</a>
+          <a id="forkme_banner" href="https://github.com/aumentia/VSAumentiaIOS">View on GitHub</a>
 
           <h1 id="project_title">Visual Search Framework [iOS]</h1>
           <h2 id="project_tagline">Aumentia Visual Search Framework: Image Recognition and QR / bar code reader</h2>
 
             <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/aumentia/HelloVisualSearch_iOS/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/aumentia/HelloVisualSearch_iOS/tarball/master">Download this project as a tar.gz file</a>
+              <a class="zip_download_link" href="https://github.com/aumentia/VSAumentiaIOS/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/aumentia/VSAumentiaIOS/tarball/master">Download this project as a tar.gz file</a>
             </section>
         </header>
     </div>
@@ -66,17 +66,15 @@
 </li>
 <li> <a href="https://github.com/aumentia/HelloVisualSearch_iOS/wiki/Add-&amp;-Remove-Images">Add &amp; Remove Images</a>
 </li>
-<li> <a href="https://github.com/aumentia/HelloVisualSearch_iOS/wiki/Read-QR---bar-codes">Read QR bar codes</a>
+<li> <a href="https://github.com/aumentia/HelloVisualSearch_iOS/wiki/Read-QR---bar-codes">Read QR &amp; Bar codes</a>
 </li>
 <li> <a href="https://github.com/aumentia/HelloVisualSearch_iOS/wiki/Crop-frames">Crop frames</a>
 </li>
-<li> <a href="http://api.aumentia.com/visualsearch/">API</a>
+<li> <a href="https://github.com/aumentia/HelloVisualSearch_iOS/wiki/Motion-Detection-(-Virtual-Buttons-)">Motion Detection (Virtual Buttons)</a>
 </li>
-<li> <a href="https://github.com/aumentia/HelloVisualSearch_iOS/wiki/Featured-Apps-using-the-VS-Framework">Featured Apps using the VS Framework</a>
-
-<ul>
-<li><a href="https://github.com/aumentia/HelloVisualSearch_iOS/wiki/Featured-Apps---Klikaklu">Klikaklu</a></li>
-</ul>
+<li> <a href="https://github.com/aumentia/HelloVisualSearch_iOS/wiki/Connect-to-SWIFT">Connect to SWIFT</a>
+</li>
+<li> <a href="http://api.aumentia.com/visualsearch/">API</a>
 </li>
 </ul>
 
@@ -358,6 +356,106 @@ The supported standards are:</p>
 
     [_myVs <span class="pl-c1">setImageCropRect:</span>myRect];
 }</pre></div>
+
+<h2>
+<a id="motion-detection" class="anchor" href="#motion-detection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Motion Detection</h2>
+
+<p>Create <strong>virtual buttons</strong> by detecting motion within regions of interest that you define.</p>
+
+<h3>
+<a id="init-a-motion-detection-instance" class="anchor" href="#init-a-motion-detection-instance" aria-hidden="true"><span class="octicon octicon-link"></span></a>Init a motion detection instance</h3>
+
+<p>Import the VSMotion header:</p>
+
+<div class="highlight highlight-objective-c"><pre>#<span class="pl-k">import</span> <span class="pl-s"><span class="pl-pds">&lt;</span>VS/VSMotion.h<span class="pl-pds">&gt;</span></span></pre></div>
+
+<p>Init the library setting your <strong>API Key</strong> and the <strong>DEBUG</strong> flag. If that FLAG is set to <strong>YES</strong>, you will get on the console some useful debug messages.</p>
+
+<div class="highlight highlight-objective-c"><pre>VSMotion *aumMotion = [[VSMotion <span class="pl-c1">alloc</span>] <span class="pl-c1">initWithKey:</span><span class="pl-s"><span class="pl-pds">@"</span>749c6205e9c035d3850b509aa94d1bb5d8d89b4a<span class="pl-pds">"</span></span> <span class="pl-c1">setDebug:</span><span class="pl-c1">YES</span>];</pre></div>
+
+<h3>
+<a id="configure-the-vsmotion" class="anchor" href="#configure-the-vsmotion" aria-hidden="true"><span class="octicon octicon-link"></span></a>Configure the VSMotion</h3>
+
+<p>Enable the <strong>motion detection filter</strong>: the engine will not search if the device is moving. This option makes it more difficult to get false positives. The threshold goes from 0 to 10 being 0 very sensitive and 10 less sensitive.</p>
+
+<div class="highlight highlight-objective-c"><pre>[aumMotion <span class="pl-c1">initMotionDetectionWithThreshold:</span><span class="pl-c1">3</span> <span class="pl-c1">enableDebugLog:</span><span class="pl-c1">NO</span>];</pre></div>
+
+<p>Set the number of frames the virtual buttons will remain inactive after one is triggered.</p>
+
+<div class="highlight highlight-objective-c"><pre>[aumMotion <span class="pl-c1">setInactivePeriod:</span>[<span class="pl-c1">NSNumber</span> <span class="pl-c1">numberWithInt:</span>LOWDELAY]];</pre></div>
+
+<h3>
+<a id="add-and-remove-rois--regions-of-interest--or-virtual-buttons" class="anchor" href="#add-and-remove-rois--regions-of-interest--or-virtual-buttons" aria-hidden="true"><span class="octicon octicon-link"></span></a>Add and Remove ROIs ( regions of interest ) or virtual buttons</h3>
+
+<p>To add a ROI just define a CGRect taking in consideration that the values are represented in percentages ( values from 0 to 100 ). E.g. CGRect(10, 10, 25, 50) x = 0.1<em>screen_width, y = 0.1</em>screen_height, w = 0.25*screen_width and h = 0.50 *screen_height</p>
+
+<div class="highlight highlight-objective-c"><pre><span class="pl-c1">CGRect</span> ROI1 = CGRectMake(<span class="pl-c1">5</span>, <span class="pl-c1">5</span>, <span class="pl-c1">20</span>, <span class="pl-c1">20</span>);
+[aumMotion <span class="pl-c1">addButtonWithRect:</span>ROI1];</pre></div>
+
+<p>You can remove the ROIs one by one with their unique Id or clear all of them at once:</p>
+
+<div class="highlight highlight-objective-c"><pre>[aumMotion <span class="pl-c1">clearButtons</span>];</pre></div>
+
+<h3>
+<a id="callbacks" class="anchor" href="#callbacks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Callbacks</h3>
+
+<p>Your class should implement the <strong>VSMotionProtocol</strong></p>
+
+<p>header:</p>
+
+<div class="highlight highlight-objective-c"><pre><span class="pl-k">@interface</span> <span class="pl-en">ViewController</span> : <span class="pl-e">UIViewController</span>&lt;VSMotionProtocol, CameraCaptureDelegate&gt;</pre></div>
+
+<p>implementation:</p>
+
+<div class="highlight highlight-objective-c"><pre>[aumMotion <span class="pl-c1">setVSMotionDelegate:</span><span class="pl-v">self</span>];</pre></div>
+
+<p>We got 2 functions: <strong>buttonClicked</strong> and <strong>buttonsActive</strong></p>
+
+<p>The first one will be called when a button is clicked providing the button unique id.</p>
+
+<div class="highlight highlight-objective-c"><pre> - (<span class="pl-k">void</span>)buttonClicked:(<span class="pl-c1">NSNumber</span> *)buttonId
+{
+    <span class="pl-c1">VSLog</span>(<span class="pl-s"><span class="pl-pds">"</span>Clicked button <span class="pl-c1">%d</span><span class="pl-pds">"</span></span>, buttonId.<span class="pl-smi">intValue</span>);
+}</pre></div>
+
+<p>When a button is clicked all the rest remain inactive for some frames. The second function will let us know if the buttons are active or inactive.</p>
+
+<div class="highlight highlight-objective-c"><pre>- (<span class="pl-k">void</span>)buttonsActive:(<span class="pl-k">BOOL</span>)isActive
+{
+    <span class="pl-k">if</span> ( !isActive )
+    {
+        <span class="pl-c1">VSLog</span>(<span class="pl-s"><span class="pl-pds">"</span>Buttons disabled<span class="pl-pds">"</span></span>);
+    }
+}</pre></div>
+
+<h2>
+<a id="connect-to-swift" class="anchor" href="#connect-to-swift" aria-hidden="true"><span class="octicon octicon-link"></span></a>Connect to SWIFT</h2>
+
+<p>The Visual Search Framework is written in Objective C. In order to connect it to your Swift app follow these steps:</p>
+
+<ul>
+<li><p><strong>Import the VS.framework</strong> by dragging and dropping it into an Xcode 6 Swift project.</p></li>
+<li><p><strong>Create a new Objective C file</strong> in your project (File-&gt;New-&gt;File [Objective C for iOS]).</p></li>
+<li><p><strong>Accept the prompt</strong> to create a <strong>bridging header</strong> file between Objective C and Swift.</p></li>
+<li><p><strong>Delete the newly created Objective C</strong> file but retain the bridging header file ${YOURPROJ}-Bridging-Header.h.</p></li>
+<li><p>In the Bridging header file, import the VS.framework using the standard Objective C import syntax. You will need to import as well all the dependencies of the framework.</p></li>
+</ul>
+
+<div class="highlight highlight-objective-c"><pre>#<span class="pl-k">import</span> <span class="pl-s"><span class="pl-pds">&lt;</span>Foundation/Foundation.h<span class="pl-pds">&gt;</span></span>
+#<span class="pl-k">import</span> <span class="pl-s"><span class="pl-pds">&lt;</span>UIKit/UIKit.h<span class="pl-pds">&gt;</span></span>
+#<span class="pl-k">import</span> <span class="pl-s"><span class="pl-pds">&lt;</span>CoreVideo/CoreVideo.h<span class="pl-pds">&gt;</span></span>
+#<span class="pl-k">import</span> <span class="pl-s"><span class="pl-pds">&lt;</span>CoreGraphics/CoreGraphics.h<span class="pl-pds">&gt;</span></span>
+#<span class="pl-k">import</span> <span class="pl-s"><span class="pl-pds">&lt;</span>QuartzCore/QuartzCore.h<span class="pl-pds">&gt;</span></span>
+#<span class="pl-k">import</span> <span class="pl-s"><span class="pl-pds">&lt;</span>Accelerate/Accelerate.h<span class="pl-pds">&gt;</span></span>
+#<span class="pl-k">import</span> <span class="pl-s"><span class="pl-pds">&lt;</span>CoreMotion/CoreMotion.h<span class="pl-pds">&gt;</span></span>
+#<span class="pl-k">import</span> <span class="pl-s"><span class="pl-pds">&lt;</span>AVFoundation/AVFoundation.h<span class="pl-pds">&gt;</span></span>
+
+#<span class="pl-k">import</span> <span class="pl-s"><span class="pl-pds">&lt;</span>VS/VS.h<span class="pl-pds">&gt;</span></span></pre></div>
+
+<ul>
+<li><p>Set Build Settings -&gt; Packaging -&gt; <strong>Defines Module</strong> to <strong>Yes</strong></p></li>
+<li><p>Add Build Phases -&gt; Link Binary With Libraries -&gt; <strong>libstdc++.6.0.9.dylib</strong> </p></li>
+</ul>
       </section>
     </div>
 
