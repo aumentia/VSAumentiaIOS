@@ -54,7 +54,8 @@ To use the framework you will need an API Key. To request it, just send an email
 *************************
      VS Framework version
 *************************
-1.0
+vsPlugin 1.03
+vsMotion 0.5
 
 <br>
 ******************
