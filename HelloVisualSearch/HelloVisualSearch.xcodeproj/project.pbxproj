@@ -29,9 +29,10 @@
 		5D2A69C617062F27006F4AD9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D2A69C517062F27006F4AD9 /* QuartzCore.framework */; };
 		5D2A69C817062F31006F4AD9 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D2A69C717062F31006F4AD9 /* CoreMotion.framework */; };
 		5D2A69CA17062F37006F4AD9 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D2A69C917062F37006F4AD9 /* Accelerate.framework */; };
-		5D2A69CC17062F3F006F4AD9 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D2A69CB17062F3F006F4AD9 /* libiconv.dylib */; };
 		5D2A69CF17063CA0006F4AD9 /* CaptureSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2A69CE17063CA0006F4AD9 /* CaptureSessionManager.m */; };
-		6136CE271A80261A0001A89A /* VS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6136CE261A80261A0001A89A /* VS.framework */; };
+		612C796F1BA20C62002ABF67 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 612C796E1BA20C62002ABF67 /* libiconv.tbd */; };
+		612C79711BA20D2E002ABF67 /* VS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 612C79701BA20D2E002ABF67 /* VS.framework */; };
+		612C79731BA20E10002ABF67 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 612C79721BA20E10002ABF67 /* libstdc++.6.0.9.tbd */; };
 		61436B111A762873000C00E4 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61436B101A762873000C00E4 /* Launch Screen.xib */; };
 		61436B131A76297D000C00E4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61436B121A76297D000C00E4 /* Images.xcassets */; };
 /* End PBXBuildFile section */
@@ -64,10 +65,11 @@
 		5D2A69C517062F27006F4AD9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		5D2A69C717062F31006F4AD9 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		5D2A69C917062F37006F4AD9 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
-		5D2A69CB17062F3F006F4AD9 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 		5D2A69CD17063CA0006F4AD9 /* CaptureSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptureSessionManager.h; sourceTree = "<group>"; };
 		5D2A69CE17063CA0006F4AD9 /* CaptureSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaptureSessionManager.m; sourceTree = "<group>"; };
-		6136CE261A80261A0001A89A /* VS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VS.framework; path = HelloVisualSearch/SDK/VS.framework; sourceTree = "<group>"; };
+		612C796E1BA20C62002ABF67 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		612C79701BA20D2E002ABF67 /* VS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VS.framework; path = HelloVisualSearch/SDK/VS.framework; sourceTree = "<group>"; };
+		612C79721BA20E10002ABF67 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
 		61436B101A762873000C00E4 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		61436B121A76297D000C00E4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -77,13 +79,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D2A69CC17062F3F006F4AD9 /* libiconv.dylib in Frameworks */,
+				612C79731BA20E10002ABF67 /* libstdc++.6.0.9.tbd in Frameworks */,
+				612C796F1BA20C62002ABF67 /* libiconv.tbd in Frameworks */,
 				5D2A69CA17062F37006F4AD9 /* Accelerate.framework in Frameworks */,
 				5D2A69C817062F31006F4AD9 /* CoreMotion.framework in Frameworks */,
 				5D2A69C617062F27006F4AD9 /* QuartzCore.framework in Frameworks */,
 				5D2A69C417062F23006F4AD9 /* CoreMedia.framework in Frameworks */,
 				5D2A69C217062F1B006F4AD9 /* CoreVideo.framework in Frameworks */,
-				6136CE271A80261A0001A89A /* VS.framework in Frameworks */,
+				612C79711BA20D2E002ABF67 /* VS.framework in Frameworks */,
 				5D2A69C017062F14006F4AD9 /* AVFoundation.framework in Frameworks */,
 				5D2A696C17062C1A006F4AD9 /* UIKit.framework in Frameworks */,
 				5D2A696E17062C1A006F4AD9 /* Foundation.framework in Frameworks */,
@@ -114,8 +117,9 @@
 		5D2A696A17062C1A006F4AD9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5D2A69CB17062F3F006F4AD9 /* libiconv.dylib */,
-				6136CE261A80261A0001A89A /* VS.framework */,
+				612C79721BA20E10002ABF67 /* libstdc++.6.0.9.tbd */,
+				612C796E1BA20C62002ABF67 /* libiconv.tbd */,
+				612C79701BA20D2E002ABF67 /* VS.framework */,
 				5D2A69C917062F37006F4AD9 /* Accelerate.framework */,
 				5D2A69C717062F31006F4AD9 /* CoreMotion.framework */,
 				5D2A69C517062F27006F4AD9 /* QuartzCore.framework */,
@@ -200,7 +204,7 @@
 		5D2A696017062C1A006F4AD9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = Aumentia;
 			};
 			buildConfigurationList = 5D2A696317062C1A006F4AD9 /* Build configuration list for PBXProject "HelloVisualSearch" */;
@@ -315,6 +319,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -391,6 +396,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HelloVisualSearch/HelloVisualSearch-Prefix.pch";
 				INFOPLIST_FILE = "HelloVisualSearch/HelloVisualSearch-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-mthumb",
@@ -400,6 +406,7 @@
 					"-mfpu=neon",
 					"-mtune=cortex-a8",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.aumentia.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -418,6 +425,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HelloVisualSearch/HelloVisualSearch-Prefix.pch";
 				INFOPLIST_FILE = "HelloVisualSearch/HelloVisualSearch-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-mthumb",
@@ -427,6 +435,7 @@
 					"-mfpu=neon",
 					"-mtune=cortex-a8",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.aumentia.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

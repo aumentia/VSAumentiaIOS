@@ -19,7 +19,7 @@
  * Description:
  * Author: Pablo GM (info@aumentia.com)
  * Created: 01/09/15.
- * Verion 0.5
+ * Verion 0.6
  *
  *
  **************************************************************************/
@@ -54,15 +54,15 @@ typedef NS_ENUM(NSInteger, vsMotionDelay)
     /**
      * Delay of 5 frames
      */
-    LOWDELAY        = 5,
+    LOWDELAY     = 5,
     /**
      * Delay of 10 frames
      */
-    MEDIUMDELAY     = 10,
+    MEDIUMDELAY = 10,
     /**
      * Delay of 25 frames
      */
-    HIGHDELAY       = 25,
+    HIGHDELAY = 25,
 };
 
 /**

@@ -12,15 +12,13 @@
 
 ///////////////
 #define VSLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
-
-#define VSAlert(fmt, ...)  { UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Result" message:[NSString stringWithFormat:fmt, ##__VA_ARGS__]  delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil]; [alert show]; }
 ///////////////
 
 
 @interface ViewController ()
 {
     vsPlugin                    *_myVs;
-    UIAlertView                 *_myLoading;
+    UIAlertController           *_myLoading;
     CaptureSessionManager       *_captureManager;
     UIView                      *_cameraView;
     UIImageView                 *_resPic;
@@ -121,18 +119,20 @@
 
 - (void)addLoading
 {
-    //Add images into the library
-    _myLoading = [[UIAlertView alloc] initWithTitle:@"Loading..." message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
-    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    spinner.center = CGPointMake(142,70);
-    [spinner startAnimating];
-    [_myLoading addSubview:spinner];
-    [_myLoading show];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        _myLoading  =   [UIAlertController
+                             alertControllerWithTitle:@"Analysing ..."
+                             message:nil
+                             preferredStyle:UIAlertControllerStyleAlert];
+        [self presentViewController:_myLoading animated:YES completion:nil];
+        
+    });
 }
 
 - (void)removeLoading
 {
-    [_myLoading dismissWithClickedButtonIndex:0 animated:YES];
+    [_myLoading dismissViewControllerAnimated:YES completion:nil];
     _myLoading  = nil;
 }
 
@@ -278,10 +278,6 @@
     if ( ![res isEqualToString:@""])
     {
         VSLog(@"QR / bar code detected --> %@", res);
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            VSAlert(@"QR / bar code detected --> %@", res);
-        });
     }
 }
 
@@ -297,10 +293,6 @@
     }
     
     VSLog(@"Multiple QR / bar codes detected --> %@", code);
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        VSAlert(@"Multiple QR / bar codes detected --> %@", code);
-    });
 }
 
 
