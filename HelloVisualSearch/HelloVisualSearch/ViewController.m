@@ -122,7 +122,7 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         
         _myLoading  =   [UIAlertController
-                             alertControllerWithTitle:@"Analysing ..."
+                             alertControllerWithTitle:@"Loading ..."
                              message:nil
                              preferredStyle:UIAlertControllerStyleAlert];
         [self presentViewController:_myLoading animated:YES completion:nil];
