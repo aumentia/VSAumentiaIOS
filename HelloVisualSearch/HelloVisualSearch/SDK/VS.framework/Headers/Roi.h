@@ -19,7 +19,7 @@
  * Description:
  * Author: Pablo GM (info@aumentia.com)
  * Created: 14/01/15.
- * Version 1.03
+ * Version 1.1
  *
  *
  **************************************************************************/
@@ -27,7 +27,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface Roi : NSObject
+__attribute__((__visibility__("default"))) @interface Roi : NSObject
 
 /**
  * Region of interest bounds

@@ -119,34 +119,34 @@
 
 #pragma mark - Private Functions
 
-- (void)addStillImageOutput
-{
-    [self setStillImageOutput:[[AVCaptureStillImageOutput alloc] init]];
-    
-    NSDictionary *outputSettings = [[NSDictionary alloc] initWithObjectsAndKeys:AVVideoCodecJPEG,AVVideoCodecKey,nil];
-    
-    [[self stillImageOutput] setOutputSettings:outputSettings];
-    
-    AVCaptureConnection *videoConnection = nil;
-    
-    for (AVCaptureConnection *connection in [[self stillImageOutput] connections])
-    {
-        for (AVCaptureInputPort *port in [connection inputPorts])
-        {
-            if ([[port mediaType] isEqual:AVMediaTypeVideo] )
-            {
-                videoConnection = connection;
-                break;
-            }
-        }
-        if (videoConnection) {
-            [videoConnection setVideoMinFrameDuration:CMTimeMake(1, 15)];
-            break;
-        }
-    }
-    
-    [[self captureSession] addOutput:[self stillImageOutput]];
-}
+//- (void)addStillImageOutput
+//{
+//    [self setStillImageOutput:[[AVCaptureStillImageOutput alloc] init]];
+//    
+//    NSDictionary *outputSettings = [[NSDictionary alloc] initWithObjectsAndKeys:AVVideoCodecJPEG,AVVideoCodecKey,nil];
+//    
+//    [[self stillImageOutput] setOutputSettings:outputSettings];
+//    
+//    AVCaptureConnection *videoConnection = nil;
+//    
+//    for (AVCaptureConnection *connection in [[self stillImageOutput] connections])
+//    {
+//        for (AVCaptureInputPort *port in [connection inputPorts])
+//        {
+//            if ([[port mediaType] isEqual:AVMediaTypeVideo] )
+//            {
+//                videoConnection = connection;
+//                break;
+//            }
+//        }
+//        if (videoConnection) {
+//            [videoConnection setVideoMinFrameDuration:CMTimeMake(1, 15)];
+//            break;
+//        }
+//    }
+//    
+//    [[self captureSession] addOutput:[self stillImageOutput]];
+//}
 
 - (void)captureStillImage
 {
