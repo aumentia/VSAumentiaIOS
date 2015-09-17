@@ -6,7 +6,7 @@ Visual Search Framework
 </p>
 
 * Add visual search to your app.
-* Real time image matching (50-100 images per pool).
+* Real time image matching.
 * Insert images from local resources: works offline!
 * Insert images from URL.
 * White Label.
