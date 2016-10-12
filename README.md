@@ -17,7 +17,7 @@ Visual Search Framework
 * **arm64 support**
 * **[Swift support](https://github.com/aumentia/HelloVisualSearch_iOS/wiki/Connect-to-SWIFT)**
 * **BITCODE enabled**
-* Compabitle with **XCode7** and **iOS 9**
+* Compabitle with **XCode8** and **iOS 10**
 
 <br>
 **********************
