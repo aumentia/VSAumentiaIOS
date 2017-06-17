@@ -21,34 +21,44 @@ Visual Search Framework
 
 <br>
 ### NEW: Motion Recognition
+<br>
 * Define virtual buttons (regions of interest) to detect motion
 
 <br>
 ### Request an API Key
+<br>
 To use the framework you will need an API Key. To request it, just send an email to info@aumentia.com with the following details:
+<br>
 * Bundle Id of the application where you want to use the framework.
+<br>
 * Name and description of the app where you want to use the framework.
-* Your ( or your company ) name.
+<br>
+* Your ( or your company ) name.<br>
 
 <br>
 ### Documentation
+<br>
 [Wiki](https://github.com/aumentia/HelloVisualSearch_iOS/wiki)
 
 <br>
 ### API
+<br>
 [api.aumentia.com](http://api.aumentia.com/visualsearch/)
 
 <br>
 ### iOS Version
+<br>
 6.0+
 
 <br>
 ### VS Framework version
+<br>
 vsPlugin 1.03
 vsMotion 0.5
 
 <br>
 ### Devices tested
+<br>
  iPhone 4<br>
  iPhone 4s<br>
  iPhone 5<br>
@@ -60,10 +70,12 @@ vsMotion 0.5
  iPad mini 1, 2, 3<br>
  
  <br>
-    License
+### License
+    <br>
 [LICENSE](https://github.com/aumentia/HelloVisualSearch_iOS/blob/master/LICENSE)
 
 <br>
-    Bugs
+### Bugs
+    <br>
 
 [Issues & Requests](https://github.com/aumentia/HelloVisualSearch_iOS/issues)
